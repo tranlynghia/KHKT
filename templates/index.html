@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cố Vấn Học Đường AI | Trường PTDTNT Phước Sơn</title>
+  <meta name="description" content="Trợ lý giải đáp quy chế, nội quy, khen thưởng và thi đua nề nếp Trường PTDTNT Phước Sơn năm học 2026-2027 với phong cách bảng phấn xanh tối giản thanh lịch.">
+  <!-- Google Fonts: Plus Jakarta Sans & Patrick Hand / Playfair Display -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Marked.js & DOMPurify -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dompurify@3.0.8/dist/purify.min.js"></script>
+  
+  <!-- GSAP Core -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="/static/css/style.css?v=20261026_04">
+</head>
+<body class="chalkboard-body" data-theme="autumn">
+  <!-- Container chứa hạt hiệu ứng lễ hội rơi (GSAP Animation) -->
+  <div id="autumn-leaves-container" class="leaves-container" aria-hidden="true"></div>
+
+  <!-- Bụi sáng bảng đen nhẹ nhàng -->
+  <div class="chalk-dust-overlay"></div>
+
+  <div class="chalk-app">
+    <!-- Header Bảng Phấn Tối Giản -->
+    <header class="chalk-header">
+      <div class="header-left">
+        <div class="chalk-emblem" id="header-theme-emblem">
+          <i class="fa-solid fa-graduation-cap" id="header-emblem-icon"></i>
+        </div>
+        <div class="header-titles">
+          <div class="school-label">
+            <span class="school-name">TRƯỜNG PTDTNT THCS &amp; THPT PHƯỚC SƠN</span>
+            <span class="year-chip">2026 - 2027</span>
+          </div>
+          <h1 class="portal-heading">Cố Vấn Nội Quy &amp; Thi Đua Học Đường</h1>
+        </div>
+      </div>
+
+      <div class="header-actions">
+        <!-- Bộ chọn chủ đề lễ hội / mùa trong năm -->
+        <div class="chalk-theme-dropdown" id="theme-dropdown-container">
+          <button type="button" class="theme-current-btn" id="btn-theme-selector" aria-label="Đổi chủ đề lễ hội" title="Chuyển đổi chủ đề ngày lễ" aria-expanded="false">
+            <span id="current-theme-icon">🍂</span>
+            <span id="current-theme-label">Mùa Thu</span>
+            <i class="fa-solid fa-chevron-down caret-icon"></i>
+          </button>
+          
+          <div class="theme-dropdown-menu" id="theme-dropdown-menu" style="display: none;" role="menu">
+            <button type="button" class="theme-dropdown-item active" data-theme-id="autumn" role="menuitem">
+              <span class="theme-item-icon">🍂</span>
+              <span class="theme-item-info">
+                <span class="theme-item-name">Mùa Thu Tựu Trường</span>
+                <span class="theme-item-desc">Bảng phấn rêu, lá vàng rơi êm ả</span>
+              </span>
+            </button>
+            <button type="button" class="theme-dropdown-item" data-theme-id="christmas" role="menuitem">
+              <span class="theme-item-icon">🎄</span>
+              <span class="theme-item-info">
+                <span class="theme-item-name">Giáng Sinh (Noel)</span>
+                <span class="theme-item-desc">Rừng thông tuyết trắng, hoa tuyết</span>
+              </span>
+            </button>
+            <button type="button" class="theme-dropdown-item" data-theme-id="halloween" role="menuitem">
+              <span class="theme-item-icon">🎃</span>
+              <span class="theme-item-info">
+                <span class="theme-item-name">Lễ Hội Halloween</span>
+                <span class="theme-item-desc">Đêm huyền bí, dơi bay &amp; bí ngô cười</span>
+              </span>
+            </button>
+            <button type="button" class="theme-dropdown-item" data-theme-id="tet" role="menuitem">
+              <span class="theme-item-icon">🧧</span>
+              <span class="theme-item-info">
+                <span class="theme-item-name">Tết Cổ Truyền (Xuân 2027)</span>
+                <span class="theme-item-desc">Mưa hoa đào hồng, mai vàng &amp; lì xì</span>
+              </span>
+            </button>
+            <button type="button" class="theme-dropdown-item" data-theme-id="newyear" role="menuitem">
+              <span class="theme-item-icon">🎆</span>
+              <span class="theme-item-info">
+                <span class="theme-item-name">Happy New Year (2027)</span>
+                <span class="theme-item-desc">Pháo hoa kim tuyến, sao lấp lánh</span>
+              </span>
+            </button>
+            <button type="button" class="theme-dropdown-item" data-theme-id="midautumn" role="menuitem">
+              <span class="theme-item-icon">🏮</span>
+              <span class="theme-item-info">
+                <span class="theme-item-name">Tết Trung Thu</span>
+                <span class="theme-item-desc">Đèn ông sao lung linh &amp; trăng rằm</span>
+              </span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Nút mở sổ tay tra cứu nhanh -->
+        <button type="button" class="chalk-nav-btn" id="btn-toggle-handbook" title="Sổ tay tra cứu nề nếp">
+          <i class="fa-solid fa-book-bookmark"></i>
+          <span>Sổ tay nề nếp</span>
+        </button>
+
+        <!-- Nút tải tài liệu -->
+        <button type="button" class="chalk-nav-btn" id="btn-open-upload" title="Nạp thêm quy chế mới">
+          <i class="fa-solid fa-arrow-up-from-bracket"></i>
+          <span>Nạp tài liệu</span>
+        </button>
+
+        <!-- Thổi lá mùa thu -->
+        <button type="button" class="chalk-icon-btn" id="btn-wind-gust" title="Tạo cơn gió mùa thu thổi lá vàng" aria-label="Tạo cơn gió mùa thu">
+          <i class="fa-solid fa-wind"></i>
+        </button>
+
+        <!-- Bật/Tắt lá rơi -->
+        <button type="button" class="chalk-icon-btn active" id="btn-toggle-leaves" title="Bật/Tắt lá vàng rơi" aria-label="Bật hoặc tắt lá rơi">
+          <i class="fa-solid fa-leaf"></i>
+        </button>
+
+        <!-- Cài đặt -->
+        <button type="button" class="chalk-icon-btn" id="btn-open-settings" title="Cài đặt" aria-label="Mở cài đặt">
+          <i class="fa-solid fa-gear"></i>
+        </button>
+      </div>
+    </header>
+
+    <!-- Khu vực chính: Khung bảng vấn đáp -->
+    <main class="chalk-board-main">
+      <!-- Thanh công cụ nhỏ góc trên -->
+      <div class="board-subbar">
+        <div class="subbar-status">
+          <span class="status-chalk-dot"></span>
+          <span id="kb-status-text">Đang kết nối dữ liệu quy chế...</span>
+        </div>
+        <div class="subbar-right">
+          <!-- Huy hiệu chủ đề trang trí -->
+          <span class="theme-festive-badge" id="theme-festive-badge">
+            <span id="festive-badge-icon">🍂</span>
+            <span id="festive-badge-text">Thu Tựu Trường</span>
+          </span>
+          <button type="button" class="subbar-clear-btn" id="btn-clear-chat" title="Làm mới cuộc trò chuyện">
+            <i class="fa-solid fa-rotate-right"></i> Làm mới bảng
+          </button>
+        </div>
+      </div>
+
+      <!-- Vùng hiển thị cuộc trò chuyện -->
+      <div class="chalk-conversation" id="chat-messages">
+        <!-- Bảng chào mừng phong cách chữ phấn viết tay trên bảng đen -->
+        <div class="chalk-welcome" id="welcome-banner">
+          <div class="chalk-quote">
+            <span class="quote-line"></span>
+            <span class="quote-text"><i class="fa-solid fa-feather-pointed"></i> "Tiên học lễ - Hậu học văn" • Thu tựu trường 2026 - 2027</span>
+            <span class="quote-line"></span>
+          </div>
+
+          <h2 class="welcome-heading">Chào mừng Thầy Cô &amp; Các Em Học Sinh!</h2>
+          <p class="welcome-subtext">
+            Hệ thống đã nạp đầy đủ văn bản <strong>Quy chế thi đua nề nếp số 18/HD-DTNTPS</strong> của nhà trường. 
+            Thầy cô và các em có thể bấm vào chủ đề bên dưới hoặc nhập câu hỏi trực tiếp để được giải đáp chuẩn xác:
+          </p>
+
+          <!-- Các thẻ câu hỏi nét phấn thanh mảnh -->
+          <div class="chalk-prompt-grid">
+            <button type="button" class="chalk-prompt-item" data-prompt="Quy định trang phục của học sinh các ngày trong tuần (thổ cẩm, âu phục, áo dài, áo Đoàn) như thế nào?">
+              <span class="prompt-icon-box"><i class="fa-solid fa-shirt"></i></span>
+              <span class="prompt-text-group">
+                <span class="prompt-main">Đồng phục theo tuần</span>
+                <span class="prompt-desc">Thổ cẩm T2-T3, âu phục, áo Đoàn</span>
+              </span>
+            </button>
+
+            <button type="button" class="chalk-prompt-item" data-prompt="Cách tính điểm thi đua tuần của lớp (thang 200 điểm) và cách xếp vị thứ tháng tính như thế nào?">
+              <span class="prompt-icon-box"><i class="fa-solid fa-trophy"></i></span>
+              <span class="prompt-text-group">
+                <span class="prompt-main">Thang 200đ thi đua tuần</span>
+                <span class="prompt-desc">Sổ đầu bài 50đ, KTX 100đ, Học tập 50đ</span>
+              </span>
+            </button>
+
+            <button type="button" class="chalk-prompt-item" data-prompt="Quy định nề nếp khu nội trú, giờ ăn, giờ ngủ và các lỗi bị trừ điểm tại phòng ở?">
+              <span class="prompt-icon-box"><i class="fa-solid fa-bed"></i></span>
+              <span class="prompt-text-group">
+                <span class="prompt-main">Nề nếp Khu Nội Trú</span>
+                <span class="prompt-desc">Giờ ăn, giờ ngủ, vệ sinh phòng KTX</span>
+              </span>
+            </button>
+
+            <button type="button" class="chalk-prompt-item" data-prompt="Quy chế chấm điểm giờ tự học buổi tối và quy định sử dụng điện thoại di động?">
+              <span class="prompt-icon-box"><i class="fa-solid fa-mobile-screen"></i></span>
+              <span class="prompt-text-group">
+                <span class="prompt-main">Tự học tối &amp; Điện thoại</span>
+                <span class="prompt-desc">19h00 tự học, cấm dùng điện thoại</span>
+              </span>
+            </button>
+
+            <button type="button" class="chalk-prompt-item" data-prompt="Các hành vi vi phạm nào sẽ bị trừ điểm nặng hoặc bị xem xét hạ hạnh kiểm, buộc thôi học?">
+              <span class="prompt-icon-box"><i class="fa-solid fa-triangle-exclamation"></i></span>
+              <span class="prompt-text-group">
+                <span class="prompt-main">Kỷ luật &amp; Hạ hạnh kiểm</span>
+                <span class="prompt-desc">Khung trừ điểm vi phạm &amp; xử lý</span>
+              </span>
+            </button>
+
+            <button type="button" class="chalk-prompt-item" data-prompt="Quy định thời gian vào lớp, đi trễ buổi sáng, buổi chiều và thủ tục xin nghỉ học có phép?">
+              <span class="prompt-icon-box"><i class="fa-solid fa-clock"></i></span>
+              <span class="prompt-text-group">
+                <span class="prompt-main">Chuyên cần &amp; Giờ giấc</span>
+                <span class="prompt-desc">Truy bài 06:45, vào lớp 07:00</span>
+              </span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Dòng tin nhắn trò chuyện nối tiếp -->
+        <div class="messages-stream" id="messages-stream"></div>
+      </div>
+
+      <!-- Typing Indicator phấn trắng nhấp nháy -->
+      <div class="typing-indicator-wrapper" id="typing-indicator" style="display: none;">
+        <div class="typing-avatar"><i class="fa-solid fa-chalkboard-user"></i></div>
+        <div class="typing-bubble">
+          <span class="typing-text">Cố vấn đang lật sổ tra cứu quy định...</span>
+          <div class="typing-dots">
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Khay đựng phấn: Thanh nhập liệu dưới đáy (Chalk Tray Input) -->
+      <footer class="chalk-tray-footer">
+        <div class="chalk-input-box" id="chat-form">
+          <button type="button" class="tray-action-btn" id="btn-quick-attach" title="Nạp văn bản quy định" aria-label="Nạp văn bản quy định">
+            <i class="fa-solid fa-paperclip"></i>
+          </button>
+
+          <div class="textarea-wrapper">
+            <textarea 
+              id="user-input" 
+              placeholder="Hỏi về đồng phục thổ cẩm, thang 200 điểm, nề nếp KTX, giờ tự học... (Enter để gửi)" 
+              rows="1"
+              maxlength="2000"
+            ></textarea>
+          </div>
+
+          <!-- Nút giọng nói tiếng Việt -->
+          <button type="button" class="tray-action-btn" id="btn-voice" title="Hỏi bằng giọng nói" aria-label="Hỏi bằng giọng nói">
+            <i class="fa-solid fa-microphone"></i>
+          </button>
+
+          <!-- Nút gửi câu hỏi -->
+          <button type="button" class="tray-send-btn" id="btn-send" title="Gửi câu hỏi" aria-label="Gửi câu hỏi">
+            <i class="fa-solid fa-arrow-up"></i>
+          </button>
+        </div>
+        <div class="tray-note">
+          <span id="char-count">0 / 2000 ký tự</span>
+          <span>•</span>
+          <span>Trích dẫn trực tiếp Hướng dẫn số 18/HD-DTNTPS của Trường PTDTNT Phước Sơn</span>
+        </div>
+      </footer>
+    </main>
+  </div>
+
+  <!-- Drawer Trượt: Sổ Tay Nề Nếp & Tra Cứu Nhanh (Chalkboard Drawer) -->
+  <div class="drawer-backdrop" id="handbook-drawer-backdrop" style="display: none;">
+    <aside class="chalk-drawer" id="handbook-drawer">
+      <div class="drawer-header">
+        <div class="drawer-title">
+          <i class="fa-solid fa-book-open"></i>
+          <span>Sổ Tay Nề Nếp Học Sinh 2026 - 2027</span>
+        </div>
+        <button type="button" class="drawer-close-btn" id="btn-close-drawer" aria-label="Đóng sổ tay">&times;</button>
+      </div>
+
+      <div class="drawer-body">
+        <!-- Mục 1: Lịch đồng phục -->
+        <div class="drawer-card">
+          <h4><i class="fa-solid fa-shirt"></i> Lịch Đồng Phục Trong Tuần</h4>
+          <ul class="drawer-list">
+            <li><strong>Thứ 2 &amp; Thứ 3:</strong> Trang phục thổ cẩm truyền thống</li>
+            <li><strong>Thứ 4 &amp; Thứ 5:</strong> Âu phục (Nam) / Áo dài trắng (Nữ)</li>
+            <li><strong>Thứ 6 &amp; Thứ 7:</strong> Áo Thanh niên (Đoàn viên)</li>
+            <li><strong>Giờ Thể Dục:</strong> Đồ thể thao đúng mẫu nhà trường</li>
+          </ul>
+          <p class="drawer-small-tip">* Lưu ý: Mang dép quai hậu (vải/nhựa), không mang dép sục. Đeo thẻ học sinh bên ngoài áo khoác.</p>
+        </div>
+
+        <!-- Mục 2: Thời gian biểu -->
+        <div class="drawer-card">
+          <h4><i class="fa-solid fa-clock"></i> Khung Giờ Chuyên Cần</h4>
+          <ul class="drawer-list">
+            <li><strong>06:45:</strong> Tập trung truy bài 15 phút (Thứ 2 Chào cờ)</li>
+            <li><strong>07:00:</strong> Bắt đầu tiết 1 sáng (Quá 6h45 tính đi trễ -1đ)</li>
+            <li><strong>13:50:</strong> Bắt đầu buổi học chiều (Quá 13h50: -1đ)</li>
+            <li><strong>19:00:</strong> Tự học tối tại lớp học (-2đ vắng không phép)</li>
+          </ul>
+        </div>
+
+        <!-- Mục 3: Thang 200 điểm -->
+        <div class="drawer-card">
+          <h4><i class="fa-solid fa-trophy"></i> Thang Điểm Thi Đua Tuần (200đ)</h4>
+          <div class="drawer-score-row">
+            <span class="score-tag">Sổ đầu bài: 50đ</span>
+            <span class="score-tag">Nội trú KTX: 100đ</span>
+            <span class="score-tag">Học tập: 50đ</span>
+          </div>
+          <p class="drawer-formula">Điểm tuần = 200 - (Trừ SĐB + Trừ NT + Trừ HT)</p>
+        </div>
+      </div>
+    </aside>
+  </div>
+
+  <!-- Modal Tải Lên Văn Bản -->
+  <div class="modal-backdrop" id="upload-modal" style="display: none;">
+    <div class="modal-box chalk-modal">
+      <div class="modal-header">
+        <div class="modal-title-group">
+          <div class="modal-icon"><i class="fa-solid fa-file-circle-plus"></i></div>
+          <div>
+            <h3>Nạp Văn Bản Quy Định Mới</h3>
+            <p>Hỗ trợ Word (.docx, .doc), PDF (.pdf) hoặc Text (.txt)</p>
+          </div>
+        </div>
+        <button type="button" class="btn-close-modal" id="btn-close-upload" aria-label="Đóng bảng nạp">&times;</button>
+      </div>
+
+      <div class="modal-body">
+        <div class="dropzone" id="dropzone">
+          <input type="file" id="file-input" accept=".pdf,.docx,.doc,.txt" style="display: none;">
+          <div class="dropzone-content">
+            <div class="drop-icon"><i class="fa-solid fa-cloud-arrow-up"></i></div>
+            <h4>Kéo thả tệp vào đây hoặc <span class="highlight-link">Chọn tệp</span></h4>
+            <p class="drop-hint">Chấp nhận .doc, .docx, .pdf, .txt</p>
+          </div>
+          <div class="selected-file-preview" id="selected-file-preview" style="display: none;">
+            <i class="fa-regular fa-file-lines file-badge-icon"></i>
+            <div class="file-info-text">
+              <span class="file-name" id="preview-file-name">filename.docx</span>
+              <span class="file-size" id="preview-file-size">1.2 MB</span>
+            </div>
+            <button type="button" class="btn-remove-file" id="btn-remove-selected" aria-label="Hủy tệp đã chọn">&times;</button>
+          </div>
+        </div>
+
+        <div class="progress-container" id="upload-progress-container" style="display: none;">
+          <div class="progress-bar-bg">
+            <div class="progress-bar-fill" id="upload-progress-bar"></div>
+          </div>
+          <div class="progress-text" id="upload-progress-text">Đang nạp và trích xuất dữ liệu...</div>
+        </div>
+
+        <div class="existing-files-section">
+          <h4><i class="fa-solid fa-book-bookmark"></i> Văn bản hiện có trong bộ nhớ (<span id="existing-count">0</span>):</h4>
+          <ul class="existing-files-list" id="existing-files-list">
+            <li class="empty-list-notice">Đang tải danh sách...</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn-chalk-secondary" id="btn-cancel-upload">Đóng</button>
+        <button type="button" class="btn-chalk-primary" id="btn-submit-upload" disabled>
+          <i class="fa-solid fa-upload"></i> Bắt đầu Nạp
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Cài Đặt -->
+  <div class="modal-backdrop" id="settings-modal" style="display: none;">
+    <div class="modal-box chalk-modal">
+      <div class="modal-header">
+        <div class="modal-title-group">
+          <div class="modal-icon"><i class="fa-solid fa-sliders"></i></div>
+          <div>
+            <h3>Cài Đặt Hệ Thống</h3>
+            <p>Tùy chỉnh chủ đề lễ hội học đường và mật độ hạt không gian</p>
+          </div>
+        </div>
+        <button type="button" class="btn-close-modal" id="btn-close-settings" aria-label="Đóng cài đặt">&times;</button>
+      </div>
+
+      <div class="modal-body">
+        <div class="form-group">
+          <label><i class="fa-solid fa-palette"></i> Chủ đề lễ hội học đường:</label>
+          <div class="settings-theme-grid" id="settings-theme-grid">
+            <button type="button" class="settings-theme-pill active" data-theme-id="autumn">🍂 Mùa Thu</button>
+            <button type="button" class="settings-theme-pill" data-theme-id="christmas">🎄 Giáng Sinh</button>
+            <button type="button" class="settings-theme-pill" data-theme-id="halloween">🎃 Halloween</button>
+            <button type="button" class="settings-theme-pill" data-theme-id="tet">🧧 Tết 2027</button>
+            <button type="button" class="settings-theme-pill" data-theme-id="newyear">🎆 New Year</button>
+            <button type="button" class="settings-theme-pill" data-theme-id="midautumn">🏮 Trung Thu</button>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="leaf-density-slider"><i class="fa-solid fa-leaf"></i> Mật độ hạt hiệu ứng rơi:</label>
+          <div class="slider-control">
+            <input type="range" id="leaf-density-slider" min="6" max="32" value="16" class="form-range">
+            <span id="leaf-density-val">16 hạt</span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="tts-auto-toggle"><i class="fa-solid fa-volume-high"></i> Giọng đọc cố vấn (Text-to-Speech):</label>
+          <div class="toggle-switch">
+            <input type="checkbox" id="tts-auto-toggle">
+            <label for="tts-auto-toggle">Tự động phát giọng đọc câu trả lời</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn-chalk-primary" id="btn-save-settings">Lưu Cài Đặt</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Container -->
+  <div class="toast-container" id="toast-container"></div>
+
+  <!-- Scripts -->
+  <script src="/static/js/leaves.js?v=20261026_04"></script>
+  <script src="/static/js/main.js?v=20261026_04"></script>
+</body>
+</html>

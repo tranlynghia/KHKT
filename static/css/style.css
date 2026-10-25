@@ -1,0 +1,1681 @@
+/* ===================================================================
+   TRƯỜNG PTDTNT THCS VÀ THPT PHƯỚC SƠN
+   PHONG CÁCH: BẢNG PHẤN XANH TỐI GIẢN (CLEAN CHALKBOARD AESTHETIC)
+   Thiết kế: Tinh gọn, thoáng đãng, nét phấn thanh mảnh, hiện đại
+   =================================================================== */
+
+:root {
+  /* Bảng màu Bảng Phấn Xanh Học Đường */
+  --cb-canvas: #0c1511;           /* Nền bảng đen tổng thể */
+  --cb-board: #112019;            /* Xanh rêu đậm bảng từ */
+  --cb-board-hover: #162920;      /* Xanh sáng khi hover */
+  --cb-surface: rgba(17, 32, 25, 0.75);
+  --cb-card: rgba(14, 26, 20, 0.6);
+  --cb-tray: rgba(9, 17, 13, 0.92);
+
+  /* Màu phấn viết bảng */
+  --chalk-white: #f8fafc;
+  --chalk-cream: #f1f5f9;
+  --chalk-muted: #8fa89b;
+  --chalk-yellow: #fef08a;        /* Phấn vàng nhạt */
+  --chalk-gold: #f59e0b;          /* Phấn hổ phách mùa thu */
+  --chalk-orange: #fdba74;        /* Phấn cam */
+  --chalk-green: #6ee7b7;         /* Phấn xanh ngọc */
+
+  /* Đường nét phấn mờ */
+  --chalk-line: rgba(255, 255, 255, 0.1);
+  --chalk-line-subtle: rgba(254, 240, 138, 0.18);
+  --chalk-line-bright: rgba(254, 240, 138, 0.45);
+
+  /* Font chữ */
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-mono: 'Space Mono', monospace;
+
+  /* Bo góc thanh thoát */
+  --r-sm: 8px;
+  --r-md: 14px;
+  --r-lg: 20px;
+  --r-pill: 9999px;
+
+  /* Đổ bóng phấn mờ */
+  --chalk-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.6);
+  --chalk-glow: 0 0 16px rgba(254, 240, 138, 0.15);
+  --theme-glow: rgba(254, 240, 138, 0.15);
+  --bg-gradient: radial-gradient(at 50% 0%, rgba(20, 42, 32, 0.7) 0px, transparent 65%),
+                 radial-gradient(at 100% 100%, rgba(217, 119, 6, 0.08) 0px, transparent 55%),
+                 linear-gradient(rgba(255, 255, 255, 0.012) 1px, transparent 1px);
+}
+
+/* ===================================================================
+   6 CHỦ ĐỀ LỄ HỘI & MÙA TRONG NĂM (SEASONAL & HOLIDAY THEMES)
+   =================================================================== */
+
+/* 1. MÙA THU TỰU TRƯỜNG (AUTUMN - DEFAULT) */
+:root, body[data-theme="autumn"] {
+  --cb-canvas: #0c1511;
+  --cb-board: #112019;
+  --cb-board-hover: #162920;
+  --cb-surface: rgba(17, 32, 25, 0.78);
+  --cb-card: rgba(14, 26, 20, 0.65);
+  --cb-tray: rgba(9, 17, 13, 0.94);
+  --chalk-yellow: #fef08a;
+  --theme-accent: #f59e0b;
+  --theme-light: #fef08a;
+  --theme-border-active: rgba(254, 240, 138, 0.6);
+  --theme-glow: rgba(254, 240, 138, 0.22);
+  --theme-btn-hover: rgba(254, 240, 138, 0.12);
+  --theme-badge-bg: rgba(254, 240, 138, 0.12);
+  --theme-badge-color: #fef08a;
+  --theme-send-btn-bg: #fef08a;
+  --theme-send-btn-color: #0c1511;
+  --theme-user-bubble-bg: linear-gradient(135deg, rgba(245, 158, 11, 0.18), rgba(217, 119, 6, 0.28));
+  --theme-user-bubble-border: rgba(254, 240, 138, 0.35);
+  --bg-gradient: radial-gradient(at 50% 0%, rgba(20, 42, 32, 0.75) 0px, transparent 65%),
+                 radial-gradient(at 100% 100%, rgba(217, 119, 6, 0.08) 0px, transparent 55%),
+                 linear-gradient(rgba(255, 255, 255, 0.012) 1px, transparent 1px);
+}
+
+/* 2. GIÁNG SINH NOEL (CHRISTMAS) */
+body[data-theme="christmas"] {
+  --cb-canvas: #08120e;
+  --cb-board: #0d1e16;
+  --cb-board-hover: #12281e;
+  --cb-surface: rgba(13, 30, 22, 0.82);
+  --cb-card: rgba(10, 22, 16, 0.68);
+  --cb-tray: rgba(7, 15, 11, 0.95);
+  --chalk-yellow: #fecdd3;
+  --theme-accent: #ef4444;
+  --theme-light: #fee2e2;
+  --theme-border-active: rgba(239, 68, 68, 0.65);
+  --theme-glow: rgba(239, 68, 68, 0.26);
+  --theme-btn-hover: rgba(239, 68, 68, 0.15);
+  --theme-badge-bg: rgba(239, 68, 68, 0.18);
+  --theme-badge-color: #fca5a5;
+  --theme-send-btn-bg: #ef4444;
+  --theme-send-btn-color: #ffffff;
+  --theme-user-bubble-bg: linear-gradient(135deg, rgba(239, 68, 68, 0.22), rgba(185, 28, 28, 0.32));
+  --theme-user-bubble-border: rgba(252, 165, 165, 0.45);
+  --bg-gradient: radial-gradient(at 50% 0%, rgba(16, 46, 34, 0.82) 0px, transparent 65%),
+                 radial-gradient(at 90% 15%, rgba(239, 68, 68, 0.12) 0px, transparent 45%),
+                 radial-gradient(at 10% 85%, rgba(56, 189, 248, 0.08) 0px, transparent 45%),
+                 linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+}
+
+/* 3. LỄ HỘI HALLOWEEN */
+body[data-theme="halloween"] {
+  --cb-canvas: #0c0814;
+  --cb-board: #150f24;
+  --cb-board-hover: #1d1532;
+  --cb-surface: rgba(21, 15, 36, 0.82);
+  --cb-card: rgba(15, 10, 26, 0.68);
+  --cb-tray: rgba(10, 6, 18, 0.95);
+  --chalk-yellow: #fdba74;
+  --theme-accent: #f97316;
+  --theme-light: #fed7aa;
+  --theme-border-active: rgba(249, 115, 22, 0.65);
+  --theme-glow: rgba(249, 115, 22, 0.28);
+  --theme-btn-hover: rgba(249, 115, 22, 0.15);
+  --theme-badge-bg: rgba(249, 115, 22, 0.18);
+  --theme-badge-color: #fb923c;
+  --theme-send-btn-bg: #f97316;
+  --theme-send-btn-color: #0c0814;
+  --theme-user-bubble-bg: linear-gradient(135deg, rgba(249, 115, 22, 0.22), rgba(168, 85, 247, 0.25));
+  --theme-user-bubble-border: rgba(251, 146, 60, 0.45);
+  --bg-gradient: radial-gradient(at 50% 0%, rgba(40, 20, 65, 0.82) 0px, transparent 65%),
+                 radial-gradient(at 90% 90%, rgba(249, 115, 22, 0.12) 0px, transparent 50%),
+                 radial-gradient(at 10% 90%, rgba(168, 85, 247, 0.1) 0px, transparent 50%),
+                 linear-gradient(rgba(255, 255, 255, 0.012) 1px, transparent 1px);
+}
+
+/* 4. TẾT CỔ TRUYỀN (XUÂN 2027) */
+body[data-theme="tet"] {
+  --cb-canvas: #15080a;
+  --cb-board: #220c10;
+  --cb-board-hover: #2c1016;
+  --cb-surface: rgba(34, 12, 16, 0.84);
+  --cb-card: rgba(24, 8, 12, 0.7);
+  --cb-tray: rgba(18, 6, 8, 0.96);
+  --chalk-yellow: #fde047;
+  --theme-accent: #f43f5e;
+  --theme-light: #fef08a;
+  --theme-border-active: rgba(253, 224, 71, 0.65);
+  --theme-glow: rgba(244, 63, 94, 0.28);
+  --theme-btn-hover: rgba(244, 63, 94, 0.15);
+  --theme-badge-bg: rgba(244, 63, 94, 0.2);
+  --theme-badge-color: #fde047;
+  --theme-send-btn-bg: #fde047;
+  --theme-send-btn-color: #15080a;
+  --theme-user-bubble-bg: linear-gradient(135deg, rgba(244, 63, 94, 0.24), rgba(220, 38, 38, 0.32));
+  --theme-user-bubble-border: rgba(253, 224, 71, 0.48);
+  --bg-gradient: radial-gradient(at 50% 0%, rgba(65, 18, 28, 0.88) 0px, transparent 65%),
+                 radial-gradient(at 90% 15%, rgba(234, 179, 8, 0.12) 0px, transparent 45%),
+                 radial-gradient(at 10% 85%, rgba(244, 63, 94, 0.12) 0px, transparent 50%),
+                 linear-gradient(rgba(255, 255, 255, 0.014) 1px, transparent 1px);
+}
+
+/* 5. HAPPY NEW YEAR 2027 */
+body[data-theme="newyear"] {
+  --cb-canvas: #060b17;
+  --cb-board: #0b152a;
+  --cb-board-hover: #122140;
+  --cb-surface: rgba(11, 21, 42, 0.84);
+  --cb-card: rgba(7, 14, 28, 0.7);
+  --cb-tray: rgba(5, 9, 19, 0.96);
+  --chalk-yellow: #fef08a;
+  --theme-accent: #38bdf8;
+  --theme-light: #bae6fd;
+  --theme-border-active: rgba(56, 189, 248, 0.65);
+  --theme-glow: rgba(56, 189, 248, 0.28);
+  --theme-btn-hover: rgba(56, 189, 248, 0.15);
+  --theme-badge-bg: rgba(56, 189, 248, 0.18);
+  --theme-badge-color: #38bdf8;
+  --theme-send-btn-bg: #38bdf8;
+  --theme-send-btn-color: #060b17;
+  --theme-user-bubble-bg: linear-gradient(135deg, rgba(56, 189, 248, 0.22), rgba(129, 140, 248, 0.28));
+  --theme-user-bubble-border: rgba(56, 189, 248, 0.45);
+  --bg-gradient: radial-gradient(at 50% 0%, rgba(18, 42, 82, 0.88) 0px, transparent 65%),
+                 radial-gradient(at 90% 90%, rgba(254, 240, 138, 0.12) 0px, transparent 50%),
+                 radial-gradient(at 10% 90%, rgba(56, 189, 248, 0.12) 0px, transparent 50%),
+                 linear-gradient(rgba(255, 255, 255, 0.014) 1px, transparent 1px);
+}
+
+/* 6. TẾT TRUNG THU */
+body[data-theme="midautumn"] {
+  --cb-canvas: #070e1a;
+  --cb-board: #0d192e;
+  --cb-board-hover: #142544;
+  --cb-surface: rgba(13, 25, 46, 0.84);
+  --cb-card: rgba(8, 16, 30, 0.7);
+  --cb-tray: rgba(6, 11, 21, 0.96);
+  --chalk-yellow: #fde047;
+  --theme-accent: #ef4444;
+  --theme-light: #fef08a;
+  --theme-border-active: rgba(253, 224, 71, 0.65);
+  --theme-glow: rgba(253, 224, 71, 0.28);
+  --theme-btn-hover: rgba(253, 224, 71, 0.15);
+  --theme-badge-bg: rgba(253, 224, 71, 0.18);
+  --theme-badge-color: #fde047;
+  --theme-send-btn-bg: #fde047;
+  --theme-send-btn-color: #070e1a;
+  --theme-user-bubble-bg: linear-gradient(135deg, rgba(239, 68, 68, 0.22), rgba(245, 158, 11, 0.3));
+  --theme-user-bubble-border: rgba(253, 224, 71, 0.48);
+  --bg-gradient: radial-gradient(at 50% 0%, rgba(22, 48, 86, 0.9) 0px, transparent 65%),
+                 radial-gradient(at 85% 15%, rgba(253, 224, 71, 0.15) 0px, transparent 40%),
+                 radial-gradient(at 15% 85%, rgba(239, 68, 68, 0.1) 0px, transparent 45%),
+                 linear-gradient(rgba(255, 255, 255, 0.014) 1px, transparent 1px);
+}
+
+/* Base Reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body.chalkboard-body {
+  font-family: var(--font-sans);
+  background-color: var(--cb-canvas);
+  background-image: var(--bg-gradient);
+  background-size: 100% 100%, 100% 100%, 100% 32px; /* Dòng kẻ mờ thanh tao */
+  background-attachment: fixed;
+  color: var(--chalk-white);
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+  line-height: 1.6;
+  transition: background-color 0.5s ease, background-image 0.5s ease;
+}
+
+/* Bụi phấn mờ ảo diệu */
+.chalk-dust-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image: radial-gradient(circle at 50% 30%, rgba(255, 255, 255, 0.02) 0%, transparent 70%);
+  z-index: 1;
+}
+
+/* Lá vàng mùa thu rơi */
+.leaves-container {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 4;
+  overflow: hidden;
+}
+
+.leaf-particle {
+  position: absolute;
+  top: -60px;
+  pointer-events: none;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.35));
+  will-change: transform;
+}
+
+/* ===================================================================
+   BỐ CỤC CHÍNH (CHALK APP CONTAINER - MAX 880PX TOÀN TRANG)
+   =================================================================== */
+.chalk-app {
+  position: relative;
+  z-index: 10;
+  max-width: 880px;
+  margin: 0 auto;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 16px 20px;
+}
+
+/* ===================================================================
+   HEADER BẢNG PHẤN TỐI GIẢN (CHALK HEADER)
+   =================================================================== */
+.chalk-header {
+  position: relative;
+  z-index: 60;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 18px;
+  background: var(--cb-surface);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--chalk-line);
+  border-radius: var(--r-md);
+  box-shadow: var(--chalk-shadow);
+  margin-bottom: 14px;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.chalk-emblem {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--r-sm);
+  background: var(--theme-badge-bg);
+  border: 1px solid var(--theme-border-active);
+  color: var(--theme-badge-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  flex-shrink: 0;
+  box-shadow: 0 0 12px var(--theme-glow);
+  transition: all 0.35s ease;
+}
+
+.header-titles {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.school-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.school-name {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: var(--chalk-muted);
+}
+
+.year-chip {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  color: var(--theme-light);
+  background: var(--theme-badge-bg);
+  border: 1px solid var(--theme-border-active);
+  padding: 1px 6px;
+  border-radius: var(--r-pill);
+  transition: all 0.3s ease;
+}
+
+.portal-heading {
+  font-family: var(--font-serif);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--chalk-white);
+  letter-spacing: -0.2px;
+}
+
+/* Header Action Buttons */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.chalk-nav-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--chalk-line);
+  color: var(--chalk-white);
+  padding: 7px 12px;
+  border-radius: var(--r-sm);
+  font-family: var(--font-sans);
+  font-size: 12.5px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.chalk-nav-btn:hover {
+  background: var(--theme-btn-hover);
+  border-color: var(--theme-border-active);
+  color: var(--theme-light);
+  box-shadow: 0 0 12px var(--theme-glow);
+}
+
+/* Theme Selector Dropdown */
+.chalk-theme-dropdown {
+  position: relative;
+}
+
+.theme-current-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: var(--theme-badge-bg);
+  border: 1px solid var(--theme-border-active);
+  color: var(--theme-light);
+  padding: 6px 12px;
+  border-radius: var(--r-pill);
+  font-family: var(--font-sans);
+  font-size: 12.5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 0 10px var(--theme-glow);
+}
+
+.theme-current-btn:hover {
+  background: var(--theme-btn-hover);
+  border-color: var(--theme-light);
+  color: var(--theme-light);
+  box-shadow: 0 0 16px var(--theme-glow);
+  transform: translateY(-1px);
+}
+
+.theme-current-btn .caret-icon {
+  font-size: 10px;
+  opacity: 0.8;
+  transition: transform 0.25s ease;
+}
+
+.theme-current-btn.open .caret-icon {
+  transform: rotate(180deg);
+}
+
+.theme-dropdown-menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  min-width: 260px;
+  background: var(--cb-board);
+  border: 1px solid var(--theme-border-active);
+  border-radius: var(--r-md);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.7), 0 0 18px var(--theme-glow);
+  padding: 6px;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.theme-dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  border-radius: var(--r-sm);
+  background: transparent;
+  border: 1px solid transparent;
+  color: var(--chalk-cream);
+  font-family: var(--font-sans);
+  font-size: 12.5px;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  width: 100%;
+}
+
+.theme-dropdown-item:hover {
+  background: var(--theme-btn-hover);
+  border-color: var(--theme-border-active);
+  color: var(--theme-light);
+  transform: translateX(3px);
+}
+
+.theme-dropdown-item.active {
+  background: var(--theme-badge-bg);
+  border-color: var(--theme-border-active);
+  color: var(--theme-light);
+  font-weight: 600;
+  box-shadow: 0 0 10px var(--theme-glow);
+}
+
+.theme-item-icon {
+  font-size: 18px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.theme-item-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.theme-item-name {
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.theme-item-desc {
+  font-size: 11px;
+  opacity: 0.7;
+}
+
+.chalk-icon-btn {
+  width: 34px;
+  height: 34px;
+  border-radius: var(--r-sm);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--chalk-line);
+  color: var(--chalk-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.chalk-icon-btn:hover {
+  color: var(--theme-light);
+  border-color: var(--theme-border-active);
+  background: var(--theme-btn-hover);
+  box-shadow: 0 0 10px var(--theme-glow);
+}
+
+.chalk-icon-btn.active {
+  color: var(--theme-light);
+  border-color: var(--theme-border-active);
+  background: var(--theme-btn-hover);
+  box-shadow: 0 0 8px var(--theme-glow);
+}
+
+/* ===================================================================
+   MAIN BOARD WORKSPACE (KHUNG VẤN ĐÁP TRUNG TÂM)
+   =================================================================== */
+.chalk-board-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: var(--cb-board);
+  border: 1px solid var(--chalk-line);
+  border-radius: var(--r-md);
+  box-shadow: var(--chalk-shadow);
+  overflow: hidden;
+  height: calc(100vh - 110px);
+}
+
+.board-subbar {
+  padding: 8px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--chalk-line);
+  background: rgba(12, 23, 18, 0.5);
+  font-size: 12px;
+}
+
+.subbar-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--chalk-muted);
+}
+
+.status-chalk-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--chalk-green);
+  box-shadow: 0 0 6px var(--chalk-green);
+}
+
+.subbar-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.theme-festive-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: var(--r-pill);
+  background: var(--theme-badge-bg);
+  border: 1px solid var(--theme-border-active);
+  color: var(--theme-light);
+  box-shadow: 0 0 10px var(--theme-glow);
+  transition: all 0.35s ease;
+}
+
+.subbar-clear-btn {
+  background: transparent;
+  border: none;
+  color: var(--chalk-muted);
+  font-size: 11.5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 6px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.subbar-clear-btn:hover {
+  color: #f87171;
+}
+
+/* Vùng cuộn trò chuyện */
+.chalk-conversation {
+  flex: 1;
+  overflow-y: auto;
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  scroll-behavior: smooth;
+}
+
+.chalk-conversation::-webkit-scrollbar,
+.drawer-body::-webkit-scrollbar,
+.existing-files-list::-webkit-scrollbar {
+  width: 5px;
+}
+
+.chalk-conversation::-webkit-scrollbar-track,
+.drawer-body::-webkit-scrollbar-track,
+.existing-files-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.chalk-conversation::-webkit-scrollbar-thumb,
+.drawer-body::-webkit-scrollbar-thumb,
+.existing-files-list::-webkit-scrollbar-thumb {
+  background: var(--theme-border-active);
+  border-radius: 10px;
+}
+
+.chalk-conversation::-webkit-scrollbar-thumb:hover,
+.drawer-body::-webkit-scrollbar-thumb:hover,
+.existing-files-list::-webkit-scrollbar-thumb:hover {
+  background: var(--theme-accent);
+}
+
+/* ===================================================================
+   WELCOME BANNER (BẢNG CHÀO MỪNG NÉT PHẤN VIẾT TAY)
+   =================================================================== */
+.chalk-welcome {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 10px 4px 16px 4px;
+  border-bottom: 1px dashed var(--chalk-line-subtle);
+  margin-bottom: 8px;
+}
+
+.chalk-quote {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 12px;
+  color: var(--theme-light);
+}
+
+.quote-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--theme-border-active), transparent);
+}
+
+.quote-text {
+  font-style: italic;
+  letter-spacing: 0.3px;
+  white-space: nowrap;
+}
+
+.welcome-heading {
+  font-family: var(--font-serif);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--chalk-white);
+  line-height: 1.3;
+}
+
+.welcome-subtext {
+  font-size: 13.5px;
+  color: var(--chalk-muted);
+  line-height: 1.6;
+}
+
+.welcome-subtext strong {
+  color: var(--chalk-cream);
+}
+
+/* Lưới thẻ câu hỏi nét phấn */
+.chalk-prompt-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 10px;
+  margin-top: 6px;
+}
+
+.chalk-prompt-item {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--chalk-line);
+  border-radius: var(--r-sm);
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  font-family: var(--font-sans);
+}
+
+.chalk-prompt-item:hover {
+  background: var(--theme-btn-hover);
+  border-color: var(--theme-border-active);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px -4px rgba(0, 0, 0, 0.5), 0 0 16px var(--theme-glow);
+}
+
+.chalk-prompt-item:hover .prompt-icon-box {
+  background: var(--theme-badge-bg);
+  border-color: var(--theme-border-active);
+  color: var(--theme-light);
+  box-shadow: 0 0 8px var(--theme-glow);
+}
+
+.chalk-prompt-item:hover .prompt-main {
+  color: var(--theme-light);
+}
+
+.prompt-icon-box {
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  background: var(--theme-badge-bg);
+  color: var(--theme-badge-color);
+  border: 1px solid var(--theme-border-active);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+}
+
+.prompt-text-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.prompt-main {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--chalk-white);
+}
+
+.prompt-desc {
+  font-size: 11px;
+  color: var(--chalk-muted);
+}
+
+/* ===================================================================
+   DÒNG TIN NHẮN (MESSAGES STREAM)
+   =================================================================== */
+.messages-stream {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  width: 100%;
+}
+
+.message-row {
+  display: flex;
+  gap: 12px;
+  max-width: 90%;
+}
+
+.message-row.user-row {
+  align-self: flex-end;
+  flex-direction: row-reverse;
+}
+
+.message-row.bot-row {
+  align-self: flex-start;
+}
+
+.msg-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 15px;
+}
+
+.user-row .msg-avatar {
+  background: var(--theme-badge-bg);
+  border: 1px solid var(--theme-border-active);
+  color: var(--theme-badge-color);
+  box-shadow: 0 0 10px var(--theme-glow);
+}
+
+.bot-row .msg-avatar {
+  background: rgba(110, 231, 183, 0.15);
+  border: 1px solid var(--chalk-green);
+  color: var(--chalk-green);
+}
+
+.msg-content-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.msg-bubble {
+  padding: 12px 16px;
+  border-radius: var(--r-md);
+  font-size: 14px;
+  line-height: 1.65;
+  word-break: break-word;
+}
+
+.user-row .msg-bubble {
+  background: var(--theme-user-bubble-bg);
+  border: 1px solid var(--theme-user-bubble-border);
+  color: #ffffff;
+  border-top-right-radius: 4px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4), 0 0 12px var(--theme-glow);
+}
+
+.bot-row .msg-bubble {
+  background: rgba(14, 28, 21, 0.95);
+  border: 1px solid var(--chalk-line);
+  border-left: 3px solid var(--theme-accent);
+  color: var(--chalk-cream);
+  border-top-left-radius: 4px;
+}
+
+/* Định dạng Markdown */
+.bot-row .msg-bubble h1,
+.bot-row .msg-bubble h2,
+.bot-row .msg-bubble h3 {
+  color: var(--theme-light);
+  margin-top: 10px;
+  margin-bottom: 6px;
+  font-family: var(--font-serif);
+}
+
+.bot-row .msg-bubble h1:first-child,
+.bot-row .msg-bubble h2:first-child,
+.bot-row .msg-bubble h3:first-child {
+  margin-top: 0;
+}
+
+.bot-row .msg-bubble p {
+  margin-bottom: 8px;
+}
+
+.bot-row .msg-bubble p:last-child {
+  margin-bottom: 0;
+}
+
+.bot-row .msg-bubble ul, 
+.bot-row .msg-bubble ol {
+  padding-left: 20px;
+  margin-bottom: 8px;
+}
+
+.bot-row .msg-bubble li {
+  margin-bottom: 4px;
+}
+
+.bot-row .msg-bubble li::marker {
+  color: var(--theme-light);
+}
+
+.bot-row .msg-bubble blockquote {
+  border-left: 3px solid var(--theme-accent);
+  background: var(--theme-badge-bg);
+  padding: 6px 12px;
+  margin: 8px 0;
+  border-radius: 0 6px 6px 0;
+  color: var(--theme-light);
+  font-style: italic;
+}
+
+.bot-row .msg-bubble code {
+  background: rgba(0, 0, 0, 0.4);
+  padding: 2px 5px;
+  border-radius: 4px;
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  color: var(--theme-light);
+  border: 1px solid var(--theme-border-active);
+}
+
+.bot-row .msg-bubble table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 10px 0;
+  font-size: 12.5px;
+}
+
+.bot-row .msg-bubble th,
+.bot-row .msg-bubble td {
+  border: 1px solid var(--chalk-line);
+  padding: 6px 10px;
+  text-align: left;
+}
+
+.bot-row .msg-bubble th {
+  background: var(--theme-badge-bg);
+  color: var(--theme-light);
+  border-color: var(--theme-border-active);
+}
+
+/* Meta tin nhắn */
+.msg-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  color: var(--chalk-muted);
+  padding: 0 4px;
+}
+
+.user-row .msg-meta {
+  justify-content: flex-end;
+}
+
+.msg-model-tag {
+  background: var(--theme-badge-bg);
+  color: var(--theme-light);
+  border: 1px solid var(--theme-border-active);
+  padding: 1px 6px;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 10px;
+}
+
+.msg-actions {
+  display: flex;
+  gap: 4px;
+  margin-left: auto;
+}
+
+.msg-action-btn {
+  background: transparent;
+  border: none;
+  color: var(--chalk-muted);
+  cursor: pointer;
+  padding: 2px 5px;
+  border-radius: 4px;
+  font-size: 11px;
+  transition: all 0.2s ease;
+}
+
+.msg-action-btn:hover {
+  color: var(--theme-light);
+  background: var(--theme-btn-hover);
+}
+
+/* ===================================================================
+   TYPING INDICATOR
+   =================================================================== */
+.typing-indicator-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 22px;
+  margin-bottom: 8px;
+}
+
+.typing-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--theme-badge-bg);
+  border: 1px solid var(--theme-border-active);
+  color: var(--theme-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  box-shadow: 0 0 10px var(--theme-glow);
+}
+
+.typing-bubble {
+  background: rgba(14, 28, 21, 0.9);
+  border: 1px solid var(--chalk-line);
+  border-left: 2px solid var(--theme-accent);
+  padding: 8px 12px;
+  border-radius: var(--r-sm);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 0 12px var(--theme-glow);
+}
+
+.typing-text {
+  font-size: 12px;
+  color: var(--chalk-muted);
+}
+
+.typing-dots {
+  display: flex;
+  gap: 4px;
+}
+
+.typing-dots .dot {
+  width: 5px;
+  height: 5px;
+  background: var(--theme-accent);
+  box-shadow: 0 0 6px var(--theme-accent);
+  border-radius: 50%;
+  animation: typingBounce 1.4s infinite ease-in-out both;
+}
+
+.typing-dots .dot:nth-child(1) { animation-delay: -0.32s; }
+.typing-dots .dot:nth-child(2) { animation-delay: -0.16s; }
+
+@keyframes typingBounce {
+  0%, 80%, 100% { transform: scale(0); opacity: 0.3; }
+  40% { transform: scale(1); opacity: 1; }
+}
+
+/* ===================================================================
+   KHAY ĐỰNG PHẤN: INPUT TẠI ĐÁY BẢNG (CHALK TRAY FOOTER)
+   =================================================================== */
+.chalk-tray-footer {
+  padding: 12px 18px;
+  background: var(--cb-tray);
+  border-top: 1px solid var(--chalk-line);
+}
+
+.chalk-input-box {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--chalk-line);
+  border-radius: var(--r-md);
+  padding: 6px 10px;
+  transition: all 0.2s ease;
+}
+
+.chalk-input-box:focus-within {
+  border-color: var(--theme-border-active);
+  box-shadow: 0 0 16px var(--theme-glow);
+}
+
+.tray-action-btn {
+  background: transparent;
+  border: none;
+  color: var(--chalk-muted);
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+}
+
+.tray-action-btn:hover {
+  color: var(--theme-light);
+  background: var(--theme-btn-hover);
+}
+
+.tray-action-btn.recording {
+  color: #ef4444;
+  background: rgba(239, 68, 68, 0.2);
+}
+
+.textarea-wrapper {
+  flex: 1;
+}
+
+.textarea-wrapper textarea {
+  width: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  resize: none;
+  color: #ffffff;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 1.5;
+  max-height: 120px;
+  padding: 6px 2px;
+}
+
+.textarea-wrapper textarea::placeholder {
+  color: #64748b;
+}
+
+.tray-send-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--theme-send-btn-bg);
+  color: var(--theme-send-btn-color);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+  box-shadow: 0 0 8px var(--theme-glow);
+}
+
+.tray-send-btn:hover {
+  transform: translateY(-2px) scale(1.06);
+  box-shadow: 0 4px 16px var(--theme-glow);
+  filter: brightness(1.1);
+}
+
+.tray-note {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 4px 0 4px;
+  font-size: 11px;
+  color: var(--chalk-muted);
+}
+
+/* ===================================================================
+   DRAWER SỔ TAY NỀ NẾP (CHALK HANDBOOK DRAWER)
+   =================================================================== */
+.drawer-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  z-index: 1000;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.chalk-drawer {
+  width: 380px;
+  max-width: 90vw;
+  height: 100vh;
+  background: #0f1c16;
+  border-left: 1px solid var(--chalk-line-bright);
+  box-shadow: -10px 0 40px rgba(0, 0, 0, 0.8);
+  display: flex;
+  flex-direction: column;
+  animation: drawerSlide 0.25s ease;
+}
+
+@keyframes drawerSlide {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+}
+
+.drawer-header {
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--chalk-line);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.drawer-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--theme-light);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.drawer-close-btn {
+  background: transparent;
+  border: none;
+  color: var(--chalk-muted);
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.drawer-close-btn:hover { color: #fff; }
+
+.drawer-body {
+  padding: 20px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.drawer-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--chalk-line);
+  border-radius: var(--r-sm);
+  padding: 14px;
+}
+
+.drawer-card h4 {
+  font-size: 13px;
+  color: var(--theme-light);
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.drawer-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 12.5px;
+  color: #cbd5e1;
+}
+
+.drawer-list strong {
+  color: #fff;
+}
+
+.drawer-small-tip {
+  font-size: 11px;
+  color: var(--chalk-muted);
+  margin-top: 8px;
+  font-style: italic;
+}
+
+.drawer-score-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+
+.score-tag {
+  font-size: 11px;
+  background: var(--theme-badge-bg);
+  color: var(--theme-light);
+  border: 1px solid var(--theme-border-active);
+  padding: 3px 8px;
+  border-radius: 4px;
+  box-shadow: 0 0 6px var(--theme-glow);
+}
+
+.drawer-formula {
+  font-size: 11.5px;
+  color: var(--chalk-muted);
+  font-style: italic;
+}
+
+/* ===================================================================
+   MODALS (UPLOAD & CÀI ĐẶT)
+   =================================================================== */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(6px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.modal-box.chalk-modal {
+  width: 100%;
+  max-width: 520px;
+  background: #112019;
+  border: 1px solid var(--chalk-line-bright);
+  border-radius: var(--r-md);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.85);
+  overflow: hidden;
+  animation: modalPop 0.22s ease;
+}
+
+@keyframes modalPop {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.modal-header {
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--chalk-line);
+}
+
+.modal-title-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.modal-icon {
+  font-size: 20px;
+  color: var(--theme-light);
+}
+
+.modal-header h3 {
+  font-size: 16px;
+  color: #fff;
+}
+
+.modal-header p {
+  font-size: 11.5px;
+  color: var(--chalk-muted);
+}
+
+.btn-close-modal {
+  background: transparent;
+  border: none;
+  color: var(--chalk-muted);
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.btn-close-modal:hover { color: #fff; }
+
+.modal-body {
+  padding: 18px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  max-height: 70vh;
+  overflow-y: auto;
+}
+
+.modal-footer {
+  padding: 12px 20px;
+  border-top: 1px solid var(--chalk-line);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.btn-chalk-primary {
+  background: var(--theme-send-btn-bg);
+  color: var(--theme-send-btn-color);
+  border: none;
+  padding: 8px 16px;
+  border-radius: var(--r-sm);
+  font-weight: 700;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 0 10px var(--theme-glow);
+}
+
+.btn-chalk-primary:hover {
+  filter: brightness(1.12);
+  transform: translateY(-1px);
+  box-shadow: 0 0 16px var(--theme-glow);
+}
+
+.btn-chalk-primary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-chalk-secondary {
+  background: transparent;
+  border: 1px solid var(--chalk-line);
+  color: var(--chalk-muted);
+  padding: 8px 14px;
+  border-radius: var(--r-sm);
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.btn-chalk-secondary:hover {
+  color: #fff;
+  border-color: #fff;
+}
+
+/* Dropzone */
+.dropzone {
+  border: 2px dashed var(--chalk-line-subtle);
+  border-radius: var(--r-sm);
+  padding: 24px 16px;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.02);
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.dropzone:hover {
+  border-color: var(--theme-border-active);
+  background: var(--theme-btn-hover);
+  box-shadow: 0 0 16px var(--theme-glow);
+}
+
+.drop-icon {
+  font-size: 32px;
+  color: var(--theme-light);
+  margin-bottom: 8px;
+}
+
+.dropzone h4 {
+  font-size: 14px;
+  color: #fff;
+}
+
+.dropzone .highlight-link {
+  color: var(--theme-light);
+  text-decoration: underline;
+}
+
+.drop-hint {
+  font-size: 11.5px;
+  color: var(--chalk-muted);
+}
+
+.selected-file-preview {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--theme-badge-bg);
+  border: 1px solid var(--theme-border-active);
+  padding: 8px 12px;
+  border-radius: 6px;
+  margin-top: 6px;
+  box-shadow: 0 0 10px var(--theme-glow);
+}
+
+.file-badge-icon {
+  font-size: 20px;
+  color: var(--theme-light);
+}
+
+.file-info-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.file-name {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.file-size {
+  font-size: 10.5px;
+  color: var(--chalk-muted);
+}
+
+.btn-remove-file {
+  background: transparent;
+  border: none;
+  color: #f87171;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.progress-container {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.progress-bar-bg {
+  width: 100%;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+  width: 0%;
+  height: 100%;
+  background: var(--theme-accent);
+  transition: width 0.3s;
+}
+
+.progress-text {
+  font-size: 11.5px;
+  color: var(--theme-light);
+  text-align: center;
+}
+
+.existing-files-section h4 {
+  font-size: 12.5px;
+  color: var(--theme-light);
+  margin-bottom: 6px;
+}
+
+.existing-files-list {
+  list-style: none;
+  max-height: 120px;
+  overflow-y: auto;
+  border: 1px solid var(--chalk-line);
+  border-radius: 6px;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.existing-files-list li {
+  padding: 6px 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  font-size: 12px;
+  display: flex;
+  justify-content: space-between;
+  color: #cbd5e1;
+}
+
+.existing-files-list li:last-child { border-bottom: none; }
+
+.file-size-tag {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  color: var(--theme-light);
+}
+
+/* Form Settings */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.form-group label {
+  font-size: 12.5px;
+  color: #e2e8f0;
+}
+
+.form-input {
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--chalk-line);
+  color: #fff;
+  padding: 8px 10px;
+  border-radius: 6px;
+  font-size: 13px;
+  outline: none;
+}
+
+.form-input:focus {
+  border-color: var(--theme-border-active);
+  box-shadow: 0 0 10px var(--theme-glow);
+}
+
+.slider-control {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.form-range {
+  flex: 1;
+  accent-color: var(--theme-accent);
+}
+
+.toggle-switch {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12.5px;
+}
+
+/* Toast */
+.toast-container {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 2000;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.toast {
+  background: rgba(14, 28, 21, 0.95);
+  backdrop-filter: blur(8px);
+  border-radius: var(--r-sm);
+  padding: 9px 14px;
+  min-width: 250px;
+  max-width: 340px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+  font-size: 12.5px;
+  color: #fff;
+  border-left: 3px solid var(--theme-accent);
+}
+
+.toast.toast-success { border-left-color: var(--chalk-green); }
+.toast.toast-error { border-left-color: #f87171; }
+
+/* Settings Theme Grid */
+.settings-theme-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-top: 6px;
+}
+
+.settings-theme-pill {
+  padding: 8px 10px;
+  border-radius: var(--r-sm);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--chalk-line);
+  color: var(--chalk-cream);
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: center;
+}
+
+.settings-theme-pill:hover {
+  background: var(--theme-btn-hover);
+  border-color: var(--theme-border-active);
+  color: var(--theme-light);
+  transform: translateY(-1px);
+}
+
+.settings-theme-pill.active {
+  background: var(--theme-badge-bg);
+  border-color: var(--theme-border-active);
+  color: var(--theme-light);
+  font-weight: 600;
+  box-shadow: 0 0 12px var(--theme-glow);
+}
+
+/* Hiệu ứng nhấp chuột (Active Click Tactile Feedback) */
+.chalk-nav-btn:active,
+.chalk-icon-btn:active,
+.theme-current-btn:active,
+.tray-action-btn:active,
+.tray-send-btn:active,
+.chalk-prompt-item:active,
+.btn-chalk-primary:active,
+.settings-theme-pill:active,
+.subbar-clear-btn:active {
+  transform: scale(0.95);
+  box-shadow: 0 0 20px var(--theme-glow);
+  filter: brightness(1.15);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .chalk-app {
+    padding: 8px 10px;
+  }
+
+  .chalk-header {
+    padding: 10px 12px;
+  }
+
+  .portal-heading {
+    font-size: 15px;
+  }
+
+  .school-name {
+    display: none;
+  }
+
+  .chalk-nav-btn span {
+    display: none;
+  }
+
+  .chalk-conversation {
+    padding: 14px;
+  }
+
+  .message-row {
+    max-width: 95%;
+  }
+
+  .chalk-prompt-grid {
+    grid-template-columns: 1fr;
+  }
+}
